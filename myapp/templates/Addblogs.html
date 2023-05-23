@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row" id="bg10">
+    <div class="col-md-12">
+        <div class="text-center text-light p-4">
+            <h2>Add blogs</h2>
+            home/blogs
+        </div>
+    </div>
+    <div class="row p-3 offset-3">
+        <div class="col-md-6 ">
+        <form action="/insertblogs/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="hidden" name="userid" value="{{user.id}}" />
+         <input type="text" name="title" class="form-control" required placeholder="title" />
+        </div>
+    </div>
+    <div class="row p-3 offset-3">
+        <div class="col-md-6 ">
+            <textarea required name="description" class="form-control" placeholder="description" ></textarea>
+        </div>
+        </div>
+        <div class="row p-3 offset-3">
+        <div class="col-md-6 ">
+            <input type="file" name="photo" class="form-control" placeholder="photo" />
+        </div>
+    </div>
+    <div class="row p-3 offset-3">
+        <div class="col-md-6 ">
+            <input type="text" name="post_by" class="form-control" placeholder="post_by" />
+        </div>
+    </div>
+    <div class="row p-3 offset-3">
+        <div class="col-md-6 ">
+            <input type="date" name="post_on" class="form-control" placeholder="post_on" />
+        </div>
+    </div>
+    <input type="hidden" name="status" value="New" />
+    <div class="row p-3 offset-3">
+        <div class="col-md-6 ">
+            <button class=" btn border  my-3 btn-lg shadow-sm  w-100 bg-info">submit</button>
+        </div> 
+        </div>
+    </div>
+    
+    </form>
+        </div>
+</div>
+{% endblock %}

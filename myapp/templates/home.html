@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+    <head>
+        <title>First page</title>
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/bootstrap-grid.min.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+          <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Start Bootstrap</h1>
+                </div>
+                
+                <div class="col-md-6 p-2">
+                    <nav id="nav">
+                    <ul class="nav">
+                    <li><a href="#"class="nav-link">home</a></li>
+                    <li><a href="#"class="nav-link">about</a></li>
+                    <li><a href="#"class="nav-link">contact</a></li>
+                    </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                </div>
+
+                <div class="col-md-6 p-2">
+                    <img scr="{% static 'new1.png' %}" >
+                    <h3></h3>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+
+
+
+          </div>
+        
+    </body>
+</html>

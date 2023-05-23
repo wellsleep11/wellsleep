@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row" id="bg10">
+    <div class="col-md-12">
+        <div class="text-center text-light p-4">
+            <h2>myorder</h2>
+            home/order history
+        </div>
+    </div>
+  </div>
+<div class="row P-5">
+    <table class="table">
+        <tr>
+            <th>Srno</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Order Date</th>
+            <th>Payment Status</th>
+        </tr>
+    {% for c in c %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ c.product }}</td>
+    <td>{{ c.price }}</td>
+    <td>{{ c.quantity }}</td>
+    <td>{{ c.order.updated }}</td>
+    <td>{% if c.order.paid == True %} 
+        PAID
+        {% else %}
+        NOT PAID
+        {% endif %}
+    </td>
+  </tr>
+    {% endfor %}
+</table>
+</div>
+
+{% endblock %}

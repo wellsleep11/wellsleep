@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    {% for c in pro %}
+  {% if messages %} 
+             {% for message in messages %}  
+             {% if messages.tags%}   <script>alert("{{message}}")</script> {% endif %}
+             {% endfor %}
+             {% endif %}
+           <div id="box" class="col-md-4 p-3 category">
+        <a href="/productdetail/{{ c.id }}" class="text-dark text-decoration-none">
+        <img src="/media/{{ c.image }}" height="300px" width="100%" />
+            <p class=" mt-2  fs-4 "> {{ c.name }}</p>
+            <p class="text-decoration-line-through"><span>&#8377</span>{{ c.mrp}}</p>
+            <p><span>&#8377; </span>{{ c.price}}</p>
+            <h5 class="like">{{ c.likenow__count }} likes</h5>
+        </a>
+        {% if user.is_authenticated %}
+        <input type="hidden" value="{{ user.id }}" class="uid" /> 
+     <input type="hidden" value="{{ c.id }}" class="pid" /> 
+     <button class="btn btn-danger btnlike">like now</button><br><br>
+     {% else %}
+    
+     <a href="/login/"class="nav-link"><button class="btn btn-info">Like</button></a>
+     {% endif %}
+        </div>
+     <br>
+     
+    {% endfor %}
+</div>
+{%  endblock %}

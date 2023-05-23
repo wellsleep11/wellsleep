@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    $(document).ready(function () {
+        $("#signform input").addClass('form-control');
+    });
+</script>
+<div class="row" id="bg10">
+    <div class="col-md-12">
+        <div class="text-center text-light p-4">
+            <h2>Signup</h2>
+            home/signup
+        </div>
+    </div>
+</div>
+<div class="row p-5" id="bgl">
+    <div class="col-md-6 offset-3">
+
+        <form method="post" id="signform">
+            {% csrf_token %}
+            {% for field in form %}
+            <label>{{ field.label }}</label>
+
+            {{ field }}
+
+            {% for error in field.errors %}
+            <p class="text-danger">{{ error }}</p>
+            {% endfor %}
+            <br>
+            {% endfor %}
+            <button class="btn btn-warning">Register</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

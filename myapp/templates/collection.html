@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row" id="bg10">
+    <div class="col-md-12">
+        <div class="text-center text-light p-4">
+            <h2>COLLECTION</h2>
+            home/collection
+        </div>
+    </div>
+  </div>
+    <div class="row p-5" id="bgz">
+        <div class="col-md-2 mt-3">
+            <h5 class="text-center sidebar_title">Category</h5>
+     </div>
+    </div>
+    <div class="row">
+    {% for c in c %}
+  
+    <div id="box" class="col-md-4 p-3 category">
+        <a href="/product/{{ c.id }}" class="text-decoration-none text-dark">
+        <img src="/media/{{ c.photo }}" height="300px" width="100%" />
+            <p class=" mt-2  fs-4 "> {{ c.title }}</p>
+    </a>
+        </div>
+   
+
+    {% endfor %}
+</div>
+{% endblock %}

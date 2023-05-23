@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <div class="bg-info text-center p-4">
+        <h2>BLOGS DETAIL</h2>
+    </div>
+</div>
+
+    <div class="col-md-8 offset-2 p-3 blogs">
+
+        <h3>{{ b.title }}</h3>
+        <img src="/media/{{ b.photo }}" width="100%" />
+        <p>{{ b.description|safe }}....</p>
+        <p>{{ b.postby }} ({{ b.poston }})</p>
+
+    </div>
+
+</div>
+{% endblock %}

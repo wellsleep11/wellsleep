@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Your Shopping Cart| Checkout
+{% endblock %}
+{% block content %}
+<div class="row" id="bg10">
+    <div class="col-md-12">
+        <div class="text-center text-light p-4">
+            <h2>Order Create</h2>
+            home/checkout
+        </div>
+    </div>
+</div>
+<!-- <div class="row p-5"id="ordercreate">
+            <div class="col-md-6">
+                <h1>Checkout</h1>
+    
+            {% csrf_token %}
+            {{ form.as_p }}<br>
+            <center><input type="submit" id="submitbtn"  class="btn btn-primary" value="Submit order"></center>
+            </div>
+            </div>-->
+<div class="row p-5">
+    <div class="col-md-6 p-5 text-center">
+        <h2>Checkout</h2>
+        <form method="post" id="loginform">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <br>
+            <button class="btn btn-info btnlogin">Submit order</button>
+        </form>
+    </div>
+    <div class="col-md-6 p-5">
+        <h1> Your Order</h1>
+        <ul class=list-group id="checkoutform">
+            {% for item in cart %}
+            <li class="list-group-item">
+                <h6 class=" product-label mt-4">
+                    <div class="border border-info p-2">{{ item.quantity }}*{{ item.product.name }}</div>
+                    <br>
+                    <span>Rs. {{ item.total_price }}</span>
+            </li>
+            {% endfor %}
+            <div class="list-group-item active bg-info">Total Cost: Rs. {{ cart.get_total_price }}</div>
+        </ul>
+
+    </div>
+</div>
+{% endblock %}

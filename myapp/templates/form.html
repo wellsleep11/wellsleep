@@ -1,0 +1,80 @@
+{% load static %}
+<html>
+    <head>
+        <title>form
+
+        </title>
+      
+        <link rel="stylesheet" href="../../static/css/bootstrap-grid.css">
+        <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+        <link href="boottemplate.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body id="maindiv">
+
+     
+    <div class="container-fluid">
+
+        <div class="row"
+        <div class="col-mid-6 offset p-5" id="myform">
+    <h3>Register Form</h3>
+<form>
+
+    <label>Name</label>
+    <input type="text "class="form-control"placeholder="Enter Name"required
+    pattern="[A-Za-z ]*" />
+    <label>Email</label>
+    <input type="email"required class="form-control" placeholder="Enter Email" />
+
+    <label>Password</label>
+
+    <div class="input-group">
+    <input type="password" class="form-control" placeholder="Enter Email" />
+
+    <label>password</label>
+
+    <div class="input-group">
+    <input type="password" class="form-control" placeholder="Enter password" /> 
+    <span class="input=group-text"><i class="fab fa-eye"></i></span>
+    </div>
+
+
+    <label>phone</label>
+    <input type="tel" class="form-control" placeholder="Enter password" />
+    "10" pattern="[6|7|8|9][0-9]{9}" />
+
+    <label>Address</label>
+    <textarea class="form-control" placeholder="Enter Address"></textarea>
+
+    <br/>
+    <label>Course</label>
+    <select class="form-control">
+    <option value="">-select course-</option> 
+    <option>Python</option>
+    <option>PHP</option> 
+    <option>HTML</option>
+    <option>CSS</option> 
+    </select>
+
+    <label>pic</label>
+    <input type="file" class="form-control" accept=".png,.jpg" />
+
+    <label>date</label>
+    <input type="date" class="form-control"
+
+    <label>time</label>
+    <input type="time" class="form-control"
+
+    <br/>
+    <input type="checkbox" /><label> I accept the terms</label>
+
+    <br/>
+    <input type="submit" class="btn btn-sucess" value="Register" />
+    <input type="reset" class="btn btn-danger" value="cancel" />
+
+    
+</form>
+</div>
+</div>
+</body>
+</html>

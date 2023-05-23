@@ -1,0 +1,1338 @@
+{% load static %}
+
+<html>
+
+<head>
+    <title>First page</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-grid.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'aos-master/dist/aos.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'style.js' %}" type="text/js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'aos-master/dist/aos.js' %}"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            AOS.init();
+        });
+    </script>
+    <style>
+        @media (max-width: 767px) {
+            .carousel-inner .carousel-item>div {
+                display: none;
+            }
+
+            .carousel-inner .carousel-item>div:first-child {
+                display: block;
+            }
+        }
+
+        .carousel-inner .carousel-item.active,
+        .carousel-inner .carousel-item-next,
+        .carousel-inner .carousel-item-prev {
+            display: flex;
+        }
+
+        /* medium and up screens */
+        @media (min-width: 768px) {
+
+            .carousel-inner .carousel-item-end.active,
+            .carousel-inner .carousel-item-next {
+                transform: translateX(25%);
+            }
+
+            .carousel-inner .carousel-item-start.active,
+            .carousel-inner .carousel-item-prev {
+                transform: translateX(-25%);
+            }
+        }
+
+        .carousel-inner .carousel-item-end,
+        .carousel-inner .carousel-item-start {
+            transform: translateX(0);
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="container-fluid">
+
+        <div class="row  home" id="topheader">
+            <div class="col-md-4">
+                <img src="https://cdn.shopify.com/s/files/1/0454/2477/1240/files/logo_1_300x300.png?v=1623927662" alt=""
+                    width="50%">
+            </div>
+            <div class="col-md-6 p-2">
+                <nav class="navbar navbar-expand-lg ">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/mattress/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact/">
+                                        Contact
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about/">
+                                        About
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/service/">
+                                        Service
+                                    </a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/blogs/">
+                                        Blogs
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/collection/">
+                                        Shop
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Faq/">
+                                        Faq
+                                    </a>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li><a href="" class="nav-link text-black">Hi, {{ user.username}}
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/Addblogs/">
+                                        Addblogs
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/Myorder/">
+                                        Myorder
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout/">
+                                        Logout
+                                    </a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/signup/">
+                                        Register
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/login/">
+                                        login
+                                    </a>
+                                </li>
+                                
+                                {% endif %}
+
+
+                        </div>
+                    </div>
+                    </nav>
+                </nav>
+            </div>
+            <div class="col-md-2 p-2">
+                <a href="{% url 'cart:cart_detail' %}"><button class="btn btn-info text-light float-right">Order Now <i
+                            class="fa fa-bag-shopping px-1"></i></button></a>
+                </nav>
+            </div>
+
+            <div class="col-md-6 offset-3  text-center">
+
+                <h1 class=" text-info mt-5 display-2 fw-bold" data-aos="fade-right">Good Sleep , Better Aging</h1>
+
+                <p class="fs-4 mt-5">
+                    mattress with optimal thickness with proper spine and excellent level of support
+                    for both your head and back
+                </p>
+                <a href="/blogs/"><button class="btn btn-info text-light mt-4 ">Explore All <i
+                            class="fa-solid fa-circle-right PX-1"></i></button></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-3" data-aos="fade-right">
+                <h3 class="text-center text-info mt-5">WHAT'S NEW</h3>
+
+                <small class=" mt-6 " data-aos="fade-down-right">
+                    Experience the future of sleep with Softie Mattress' new website. Explore our range of luxurious
+                    and affordable mattresses and get personalized recommendations with our innovative sleep quiz. Shop
+                    now.
+                </small>
+            </div>
+        </div>
+        <div class="row p-5 ">
+            <div class="col-md-4">
+                <img src="{% static 'pillow2.avif' %}" class="mt-5" alt="" width="70%">
+                <h3 class=" text-dark mt-2 ms-5">VELVET CUSHION</h3>
+                <p class="mt-2 ms-5" data-aos="fade-down-right">
+                    An eclectic mix of designer cushions made from quality textiles, there is something here for every
+                    modern home
+                    - bold and colourful patterns, minimalist linens, luscious velvets, and beautiful embroideries.
+                </p>
+                <img src="{% static 'bed 1.avif' %}" class="mt-5" alt="" width="70%">
+                <h3 class=" text-dark mt-2 ms-5">SPRING MATTRESS</h3>
+                <p class="mt-2 ms-5" data-aos="fade-down-left">
+                    Spring mattresses, also called innerspring mattresses,
+                    are beds that utilize dozens to hundreds of metal springs to provide an underlying support layer.
+                    They also have softer plush material layers to increase comfort.
+
+                </p>
+            </div>
+            <div class="col-md-4 p-5 " id="pillowcenter">
+                <img src="{% static 'pillow11.webp' %}" class="ms-5 mt-5" alt="" width="100%">
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'mattress.avif' %}" class="ms-5 mt-5" alt="" width="70%">
+                <h3 class=" text-dark mt-2 ms-5" data-aos="fade-down-left">SINGLE SOFT MATTRESS</h3>
+                <p class="mt-2 ms-5">
+                    A soft mattress is often the most comfortable option for side sleepers,
+                    people who weigh less than 130 pounds, and those with frequent shoulder, back, or hip pain.
+                </p>
+
+                <img src="{% static 'curteins.avif' %}" class="ms-5 mt-5" alt="" width="70%">
+                <h3 class=" text-dark mt-2 ms-5">WINDOW BLANKET</h3>
+                <p class="mt-2 ms-5">
+                    Curtains, usually of a heavy material, arranged to fall straight in ornamental folds are also called
+                    draperies.
+                    Portieres are heavy curtains hung in a doorway.
+                </p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <h3 class="text-center text-info mt-5" data-aos="fade-down-left">YOU MAY BE LOOKING FOR</h3>
+
+                <small class=" mt-6  ">
+                    Softie Mattresses - luxuriously comfortable mattresses for a better night's sleep.
+                    Expert staff ready to help you find the perfect mattress to suit your needs and budget. Visit us
+                    today.
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-4 p-5">
+
+                <!--<button class="btn border btn-lg shadow-sm float-right">cushions</button>
+                <button class="btn border btn-lg shadow-sm float-right">mattress</button>
+                <button class="btn border btn-lg shadow-sm float-right">curtains</button>-->
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item me-2" role="presentation">
+                        <button class="btn border btn-lg shadow-sm float-right nav-link active" id="pills-Mattress-tab"
+                            data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                            aria-controls="pills-home" aria-selected="true">Mattress</button>
+                    </li>
+                    <li class="nav-item me-2 " role="presentation">
+                        <button class="btn border rounded-3 btn-lg shadow-sm float-right nav-link"
+                            id="pills-Cushions-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
+                            role="tab" aria-controls="pills-profile" aria-selected="false">Cushions</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="btn border btn-lg shadow-sm float-right nav-link" id="pills-Curtains-tab"
+                            data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab"
+                            aria-controls="pills-contact" aria-selected="false">Curtains</button>
+                    </li>
+                </ul>
+                <!--<div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>-->
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                let items = document.querySelectorAll('.carousel .carousel-item')
+
+                items.forEach((el) => {
+                    const minPerSlide = 4
+                    let next = el.nextElementSibling
+                    for (var i = 1; i < minPerSlide; i++) {
+                        if (!next) {
+                            // wrap carousel by using first child
+                            next = items[0]
+                        }
+                        let cloneChild = next.cloneNode(true)
+                        el.appendChild(cloneChild.children[0])
+                        next = next.nextElementSibling
+                    }
+                })
+            });
+        </script>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <!--slider-->
+
+                <div class="row mx-auto my-auto justify-content-center">
+                    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'cur1.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Polyster Window Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>8530</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'bed2.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Memory Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9550</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'bed1.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Coir Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>7550</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '44.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">single Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>4580</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '55.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Cooling Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '66.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Plain Blanket</p>
+                                            <p class="text-center"><span>&#8377</span>8600</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '77.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Eye PolySter Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>9500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '88.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Polyster Window Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>7760</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '12.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Orthopaedic Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>10500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '13.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Dual Comfort Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9950</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '14.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Memo Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>8650</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '15.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Coir Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>8670</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </a>
+                            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--slider end-->
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                <!--slider-->
+
+                <div class="row mx-auto my-auto justify-content-center">
+                    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'cur1.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Polyster Window Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>8530</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'bed2.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Memory Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9550</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'bed1.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Coir Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>7550</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '44.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">single Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>4580</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '55.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Cooling Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '66.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Plain Blanket</p>
+                                            <p class="text-center"><span>&#8377</span>8600</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '77.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Eye PolySter Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>9500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '88.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Polyster Window Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>7760</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '12.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Orthopaedic Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>10500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '13.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Dual Comfort Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9950</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '14.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Memo Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>8650</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '15.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Coir Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>8670</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </a>
+                            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--slider end-->
+
+            </div>
+
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                <!--slider-->
+
+                <div class="row mx-auto my-auto justify-content-center">
+                    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'cur1.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Polyster Window Curtain</p>
+                                            <p class="text-center"><span>&#8377;</span>8530</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'bed2.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Memory Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9550</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static 'bed1.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Coir Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>7550</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '44.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">single Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>4580</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '55.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Cooling Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '66.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Plain Blanket</p>
+                                            <p class="text-center"><span>&#8377</span>8600</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '77.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Eye PolySter Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>9500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '88.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Polyster Window Curtain</p>
+                                            <p class="text-center"><span>&#8377</span>7760</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '12.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Orthopaedic Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>10500</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '13.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Dual Comfort Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>9950</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '14.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Memo Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>8650</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <div class="card-img">
+                                            <img src="{% static '15.webp' %}" class="mt-5" alt="" width="100%">
+                                            <p class=" mt-2 ms-5 fs-4 text-center ">Coir Foam Mattress</p>
+                                            <p class="text-center"><span>&#8377</span>8670</p>
+                                            <div class="stars text-center">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </a>
+                            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--slider end-->
+            </div>
+        </div>
+
+
+        <div class="row    my-5 mattres-1" id="topheader">
+            <div class="col-md-4 my-5 position-relative">
+                <img src="{% static 'babymattress.webp' %}" class="my-5" alt="" width="100%">
+                <a href="https://www.youtube.com/watch?v=SD5QNo0ESMQ" target="_blank"><i
+                        class="fa fa-play position-absolute fa-2x playicon text-light bg-dark rounded-circle p-3"></i></a>
+
+            </div>
+            <div class="col-md-6 my-5">
+                <p class=" text-light fw-bold mt-5 ">Feel the softness</p>
+                <h3 class=" text-info">WHAT TYPE OF MATTRESS TO BUY?</h3>
+                <small class=" mt-6 text-light fw-bold  ">
+                    The type of mattress you should buy depends on your personal preferences and specific needs.
+                    Some common types include innerspring, memory foam, latex, and hybrid mattresses.
+                    Consider factors such as your sleeping position, body weight,
+                    and any specific needs you may have when choosing a mattress.
+                </small>
+                <div>
+                    <a href="/collection/"><button class=" btn border btn-lg shadow-sm  bg-light my-5">
+                            shop now</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <h3 class="text-center text-info mt-5">PRODUCT GALLERY</h3>
+
+                <small class=" mt-6  ">
+                    A product gallery displays a range of products with descriptions and images to help customers
+                    make informed purchasing decisions.
+                    It includes features and benefits, dimensions, materials, and pricing information.
+                </small>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-3 p-0">
+                <img src="{% static 'img-1_c.webp' %}" class="rounded-3" width="100%" height="300px" />
+            </div>
+            <div class="col-md-3 p-0">
+                <img src="{% static 'image2.webp' %}" class="rounded-3" height="300px" width="100%" />
+            </div>
+            <div class="col-md-3 p-0">
+                <img src="{% static 'img-3.webp' %}" class="rounded-3" height="300px" width="100%" />
+            </div>
+            <div class="col-md-3 p-0">
+                <img src="{% static 'img-4.jpg' %}" class="rounded-3" height="300px" width="100%" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <h3 class="text-center text-info mt-5">LATEST COLLECTIOIN</h3>
+
+                <small class=" mt-6 " data-aos="fade-right">
+                    The latest collection features new and trendy products that have been recently released.
+                    It showcases the latest fashion and design trends, and often includes limited edition or exclusive
+                    items.
+                    The collection can be found on the website or in-store and
+                    is updated regularly to reflect the newest products.
+                </small>
+            </div>
+
+
+            {% for c in coll %}
+            <div class="col-md-4 p-5">
+                <img src="/media/{{ c.photo }}" height="300px" width="100%" />
+                <div class="bg-light">
+                    <p class=" mt-2  fs-4 ">{{ c.title }}</p>
+                    <a href="/collection/"><button class=" btn border btn-lg shadow-sm  bg-secondary my-5">View all
+                            collection
+                            <i class="fa fa-right-long"></i></button></a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3 p-5">
+                <h3 class="text-center text-info mt-5">NEW ARRIVALS</h3>
+
+                <small class=" mt-6  ">
+                    New arrivals are the latest products that have been added to the collection.
+                    They often feature seasonal or trendy items and are displayed prominently on the website or
+                    in-store.
+                </small>
+            </div>
+            <div class="col-md-4 d-flex bg-light">
+
+                <img src="{% static '3.avif' %}" height="200px" width="30%" />
+                <div class="p-4">
+                    <h5> Plain Crush Curtains</h5>
+                    <h5>Brand : SENNHEISER</h5>
+                    <hr />
+                    <h4>
+                        <span>&#8377</span>9800.00
+                    </h4>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex bg-light">
+
+                <img src="{% static 'vv1.webp' %}" height="200px" width="30%" />
+                <div class="p-4">
+                    <h5> Memo Foam Mattress</h5>
+                    <h5>Brand : SENNHEISER</h5>
+                    <hr />
+                    <h4>
+                        <span>&#8377</span>7950.00
+                    </h4>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex bg-light">
+
+                <img src="{% static 'vv2.webp' %}" height="200px" width="30%" />
+                <div class="p-4">
+                    <h5> Dual Foam Mattress</h5>
+                    <h5>Brand : SENNHEISER</h5>
+                    <hr />
+                    <h4>
+                        <span>&#8377</span>8570.00
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-3 p-5">
+                <h3 class="text-center text-info mt-5">FROM OUR BLOG</h3>
+
+                <small class=" mt-6  ">
+                    It provides customers with informative and engaging content about the brand, products,
+                    or industry-related topics, and can help build brand awareness and authority.
+                </small>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-4 p-0 text-light" id="bg1">
+                <div class="col-md-12 text-center">
+
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <span>februry 14 ,2019</span>
+                    <BR>
+                    <i class="fa fa-circle-user"></i>
+                    <span>By Ram M</span>
+
+                    <p>PASTEL COLORED MATTRESS</p>
+
+                    <small class="mt-6">
+                        <p>A pastel colored mattress is a bedding option that comes in soft, muted shades
+                            This type of mattress can add a subtle pop of color to a bedroom while still
+                            maintaining a calming and relaxing atmosphere
+                            .</p>
+                    </small>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-4 p-0 text-light" id="bg2">
+                <div class="col-md-12 text-center">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <span>februry 14 ,2019</span>
+                    <BR>
+                    <i class="fa fa-circle-user"></i>
+                    <span>By Ram M</span>
+
+                    <p>MODERN INTERIOR MATTRESS</p>
+
+                    <small class="mt-6">
+                        <p>A modern interior mattress is designed to complement contemporary interior design styles.
+                            It features sleek lines, minimalist aesthetics, and often comes in neutral colors.
+                        </p>
+                    </small>
+
+                </div>
+            </div>
+            <div class="col-md-4 p-0 text-light" id="bg3">
+                <div class="col-md-12 text-center">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <span>februry 14 ,2019</span>
+                    <BR>
+                    <i class="fa fa-circle-user"></i>
+                    <span>By Ram M</span>
+
+                    <p>SLEEPING ON MATERNITY PILLOW</p>
+
+                    <small class="mt-6">
+                        <p>Sleeping on a maternity pillow can provide support and comfort for pregnant women.
+                            It can alleviate pressure on the hips, back, and neck and improve overall sleep quality.
+                        </p>
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="bg-light">
+                <div class="col-md-6 offset-3 p-5">
+
+                    <h3 class="text-center text-info mt-5">WHAT OUR CUSTOMERS SAY</h3>
+
+                    <small class=" mt-6 ">
+                        It helps potential customers learn about the experiences of others
+                        who have used the product and can assist in making informed purchasing decisions.
+                    </small>
+                </div>
+            </div>
+            <section class="bg-light">
+                <div class="row p-5 bg-light ">
+                    <div class="col-md-6 d-flex">
+                        <img src="{% static 'profile.jpg' %}" class="rounded-circle" height="200px" width="30%" />
+                        <div class="p-4">
+                            <small>
+                                I love this mattress it's so soft and comfortable you'll only gets to know when u feel
+                                it yourself.. !!
+                                I'm highly satisfied with my purchase but still those who thinking to purchase this
+                                perticular one should be aware of that it's made
+                                of various types of foam hence you need to be more careful with spilling of water or any
+                                sort of liquid </small>
+                            <h3 class="text-center mt-5">INDER SINGH</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <img src="{% static 'girl11.webp' %}" class="rounded-circle" height="200px" width="30%" />
+                        <div class="p-4">
+                            <small>
+                                This is the second mattress I have ordered from wakefit, this mattress is
+                                nice but the quality of cover is not like the first I had ordered. I had customized my
+                                mattress
+                                but the cover was sent in standard size hence loose. Company should inform the customers
+                                that cover will not be same size if you customise the mattress of your required size
+                                before hand .</small>
+                            <h3 class="text-center mt-5">LOVEPREET KAUR</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-5  ">
+                    <div class="col-md-6 d-flex">
+                        <img src="{% static 'download.jpeg' %}" class="rounded-circle" height="200px" width="30%" />
+                        <div class="p-4">
+                            <small>
+                                Wooden quality is good in bed but only one thing u should keep in mind before purchase
+                                that
+                                box base wood and top wood is MDF
+                                not plywood and it is quit flexible also rest the things are fine and once u purchase u
+                                can't return also.</small>
+                            <h3 class="text-center mt-5">HARWINDER SINGH</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <img src="{% static 'girl1.jpg' %}" class="rounded-circle" height="200px" width="30%" />
+                        <div class="p-4">
+                            <small>
+                                The bed is totally same, as per description. I was not expecting this quality and
+                                professionalism, the company shows. I am totally satisfied and advice others to go for
+                                it, you will not regret.
+                                The wake up company send the bed with super packing and delivery by one of peer company,
+                                i.e. Blue Dart.</small>
+                            <h3 class="text-center mt-5">AMANDEEP KAUR</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="row  p-4" id="bg98">
+            <div class="col-md-3">
+                <img src="{% static 'side.webp' %}" width="50%">
+                <p>Softie Mattress Shop offers a wide range of luxurious and comfortable
+                    mattresses for a restful night's sleep. Our expert staff are ready to assist you
+                    in selecting the perfect mattress to suit your needs and budget..</p>
+                <p>Visit us today for a better night's sleep</p>
+                <i class="fa-brands fa-twitter border shadow-sm"></i>
+                <i class="fa-brands fa-facebook border shadow-sm"></i>
+                <i class="fa-brands fa-google border shadow-sm"></i>
+                <i class="fab fa-tumblr border shadow-sm"></i>
+            </div>
+            <div class="col-md-3">
+                <h5>SUBSCRIBE TO OUR NEWSLETTER</h5>
+                <label>your e-mail address</label>
+                <form action="/insertemail/" method="post">
+                    {% csrf_token %}
+                    <input type="email" class="form-control" name="email" placeholder=" Enter email" />
+                    <div>
+                        <a href="/mattress/"><button
+                                class=" btn border  my-3 btn-lg shadow-sm  bg-light">Subscribe</button></a>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h5>INFORMATION</h5>
+            <a href="/Faq/" class="text-decoration-none text-dark">
+                <p>Help</p>
+            </a>
+            <a href="/about/" class="text-decoration-none text-dark">
+                <p>Information</p>
+            </a>
+            <a href="/contact/" class="text-decoration-none text-dark">
+                <p>privacy policy</p>
+            </a>
+            <a href="/shipping/" class="text-decoration-none text-dark">
+                <p>shipping details</p>
+            </a>
+            <img src="{% static 'girl.webp' %}" width="50%">
+        </div>
+        <div class="col-md-3">
+            <h5>WE ARE @</h5>
+            <i class="fa fa-house-chimney"></i>
+            <span>address</span>
+            <p>No: 58 A, green city,
+                bathinda</p>
+            <hr />
+            <i class="fa-solid fa-envelope"></i>
+            <span>E-mail</span>
+            <BR>
+            <a href="">support@softie.com</a>
+            <br />
+            <a href="#"> admin@softie.com</a>
+            <hr />
+            <i class="fa-solid fa-phone"></i>
+            <span>Phone</span>
+            <BR>
+            0123 - 456 - 789
+            <br />
+            0000 - 1234 - 56789
+            <hr />
+            <i class="fa-solid fa-fax"></i>
+            <span>Fax</span>
+            <p>0000 - 1234 - 56789</p>
+        </div>
+    </div>
+    <footer class="bg-light">
+        <p class="my-5">© 2023 Softie Design Themes</p>
+
+    </footer>
+
+    </div>
+</body>
+
+</html>
